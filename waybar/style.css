@@ -1,0 +1,304 @@
+/* Keyframes */
+
+@keyframes blink-critical {
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
+}
+
+/* Styles */
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
+@define-color time @mauve;
+@define-color date @pink;
+@define-color power @lavender;
+@define-color battery @blue;
+@define-color temp @sapphire;
+@define-color cpu @sky;
+@define-color ram @green;
+@define-color network @yellow;
+@define-color volume @peach;
+@define-color idle @red;
+/* Reset all styles */
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	
+}
+/* fix padding */
+* { 
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* The whole bar */
+#waybar {
+	background: #11111b; /* #282828#11111be0 */
+
+background: linear-gradient(0deg,rgba(25, 26, 38, 0) 0%, rgba(30, 30, 46, 0.95) 100%);
+	font-family: comfortaa, MonofurNerdFont;
+	font-size: 11pt;
+	font-weight: bold;
+    margin-top: 2pt;
+}
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#power-profiles-daemon,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#user,
+#mpris {
+	padding-left: 8pt;
+	padding-right: 8pt;
+}
+
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+}
+
+/* Each warning */
+#memory.warning,
+#cpu.warning,
+#temperature.warning {
+	color: @red;
+}
+#network.disconnected {
+	color: @yellow;
+}
+
+#battery.warning.discharging {
+	color: @base;
+}
+
+/* And now modules themselves in their respective order */
+
+/* Current sway mode (resize etc) */
+#mode {
+	color: @base;
+	background: @maroon;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+	font-weight: bolder;
+	padding-left: 5pt;
+	padding-right: 5pt;
+	color: @base;
+	background: @mauve;
+}
+
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	color: @base;
+	background: #b582f3;
+}
+
+/* Active (on focused output) */
+#workspaces button.focused {
+	color: @base;
+	background: #b582f3;
+}
+
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @base;
+	background: @maroon;
+}
+
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @lavender;
+	color: @base;
+}
+
+#window {
+	font-size: 12pt;
+	margin-right: 0pt;
+	margin-left: 8pt;
+}
+#idle_inhibitor {
+	background: @idle;
+	color: @base;
+	padding-right: 12pt;
+}
+#pulseaudio {
+	background: @volume;
+	color: @base;
+}
+
+#network {
+	background: @network;
+	color: @base;
+	margin-left:0pt;
+}
+
+#memory {
+	background: @ram;
+	color: @base;
+}
+
+#cpu {
+	background: @cpu;
+	color: @base;
+}
+
+#temperature {
+	background: @temp;
+	color: @base;
+}
+
+#power-profiles-daemon {
+	background: @power;
+	color: @base;
+}
+
+#battery {
+	background: @battery;
+	color: @base;
+}
+
+#tray {
+background: #F5C2E7;
+	background: linear-gradient(270deg,rgba(245, 194, 231, 1) 10%, rgba(49, 50, 68, 1) 90%);
+}
+
+#clock.date {
+	background: @date;
+	color: @base;
+}
+
+#clock.time {
+	background: @time;
+	color: @base;
+}
+
+#custom-arrow1 {
+	font-size: 16pt;
+	color: @time;
+	background: @date;
+
+}
+#custom-arrow2 {
+	font-size: 16pt;
+	color: @surface0;
+	background: @power;
+}
+
+#custom-arrow3 {
+	font-size: 16pt;
+	color: @power;
+	background: @battery;
+
+
+}
+
+#custom-arrow4 {
+	font-size: 16pt;
+	color: @battery;
+	background: @temp;
+
+
+}
+
+#custom-arrow5 {
+	font-size: 16pt;
+	color: @temp;
+	background: @cpu;
+
+
+}
+
+#custom-arrow6 {
+	font-size: 16pt;
+	color: @cpu;
+	background: @ram;
+
+}
+
+#custom-arrow7 {
+	font-size: 16pt;
+	color: @ram;
+	background: @network;
+	
+
+}
+
+#custom-arrow8 {
+	font-size: 16pt;
+	color: @network;
+	background: @volume;
+	
+
+}
+
+#custom-arrow9 {
+	font-size: 16pt;
+	color: @volume;
+	background: @idle;
+
+}
+
+#custom-arrow10 {
+	font-size: 16pt;
+	color: @mauve;
+	background: transparent;
+	
+}
+
+#custom-arrow11 {
+	font-size: 16pt;
+	color: @idle;
+	background: transparent;
+	
+}
+

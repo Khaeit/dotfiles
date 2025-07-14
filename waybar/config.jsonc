@@ -1,0 +1,245 @@
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"sway/mode",
+		"niri/workspaces",
+		"sway/workspaces",
+		"hyprland/workspaces",
+		"custom/arrow10",
+		"niri/window",
+		"sway/window",
+		"hyprland/window"
+	],
+
+	"modules-right": [
+		"custom/arrow11",
+		"idle_inhibitor",
+		"custom/arrow9",
+	    "pulseaudio",
+		"custom/arrow8",
+		"network",
+		"custom/arrow7",
+		"memory",
+		"custom/arrow6",
+		"cpu",
+		"custom/arrow5",
+		"temperature",
+		"custom/arrow4",
+		"battery",
+		"custom/arrow3",
+		"power-profiles-daemon",
+		"custom/arrow2",
+		"tray",
+		"clock#date",
+		"custom/arrow1",
+		"clock#time"
+	],
+
+	// Modules
+
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "{icon} {capacity}% ({time})",
+		"format-charging": "  {capacity}% ({time})",
+		"format-charging-full": "  {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W",
+		"format-icons": [
+			"  ",
+			"  ",
+			"  ",
+			"  ",
+			"  "
+		],
+		"tooltip": true
+	},
+
+	"clock#time": {
+		"interval": 10,
+		"format": "{:%H:%M}",
+		"tooltip": false
+	},
+
+	"clock#date": {
+		"interval": 20,
+		"format": "{:%b %e, %Y}",
+		"tooltip": false
+		//"tooltip-format": "{:%e %B %Y}"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": "   {usage}%",
+		"format-alt": "   {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	 "power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": " ",
+			"performance": " ",
+			"balanced": " ",
+			"power-saver": " "
+		}
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": "\uefc5   {used:0.1f}/{total:0.1f}gb",
+		"states": {
+			"warning": 85,
+			"critical": 95
+		},
+		"tooltip": false
+	},
+
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		},
+		"timeout": 30.5
+	},
+
+	"network": {
+		"interval": 5,
+		"format": "   {bandwidthDownBits}     {bandwidthUpBits}",
+		"format-ethernet": "󰖟  {ifname}",
+		"format-disconnected": "No connection",
+		"format-alt": "󰅠   {essid} ({signalStrength}%)",
+		"tooltip": false
+	},
+
+	"hyprland/window": {
+		"format": "{}",
+		"max-length": 60,
+		"tooltip": false
+	},
+
+	"hyprland/workspaces": {
+		"disable-scroll-wraparound": true,
+		"smooth-scrolling-threshold": 4,
+		"enable-bar-scroll": true,
+		"format": "{name}"
+	},
+
+//	    "idle_inhibitor": {
+//	        "format": "{icon}",
+//	        "format-icons": {
+//	            "activated": " ",
+//	            "deactivated": " "
+//	        }
+//	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": " ",
+		"format-icons": {
+			"headphone": " ",
+			"hands-free": "",
+			"headset": "",
+			"phone": " ",
+			"portable": " ",
+			"car": " ",
+			"default": [" ", "  "]
+		},
+		"scroll-step": 1,
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"tooltip": false
+	},
+
+
+
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": "{icon} {temperatureC}°",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
+	
+
+	"tray": {
+		"icon-size": 18,
+		"spacing": 5
+	},
+
+	"custom/arrow1": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow2": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow3": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow4": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow5": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow6": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow7": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow8": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow9": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow10": {
+		"format": "",
+		"tooltip": false
+	},
+		"custom/arrow11": {
+		"format": "",
+		"tooltip": false
+	}
+}
+
+// vi:ft=jsonc
