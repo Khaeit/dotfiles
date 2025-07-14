@@ -209,7 +209,8 @@ background: linear-gradient(0deg,rgba(25, 26, 38, 0) 0%, rgba(30, 30, 46, 0.95) 
 
 #tray {
 background: #F5C2E7;
-	background: linear-gradient(270deg,rgba(245, 194, 231, 1) 10%, rgba(49, 50, 68, 1) 90%);
+	background: linear-gradient(290deg,rgba(245, 194, 231, 1) 10%, rgba(54, 9, 42, 1) 90%);
+	padding-left: 5;
 }
 
 #clock.date {
@@ -230,7 +231,7 @@ background: #F5C2E7;
 }
 #custom-arrow2 {
 	font-size: 16pt;
-	color: @surface0;
+	color: rgba(54, 9, 42, 1);
 	background: @power;
 }
 
